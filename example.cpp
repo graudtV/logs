@@ -11,7 +11,7 @@ int main()
 	/* Printing logs to a file: */
 	// lgs::EnabledLogger logs("logs.txt");
 
-	/* simple logs */
+	/* simple logs with no overhead */
 	logs << lgs::new_entry << "application started" << lgs::end_entry;
 
 	/* items lists */

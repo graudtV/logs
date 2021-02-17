@@ -120,6 +120,7 @@ public:
 	DisabledLogger& operator <<(DisabledLogger& (* /* manip */)(DisabledLogger& logs)) { return *this; }
 };
 
+/* Manipulator. Similar to new_entry, but also inserts a tag on the top */
 class new_entry_tagged {
 public:
 	explicit new_entry_tagged(const char *descr) : m_descr(descr) {}
@@ -132,6 +133,12 @@ private:
 	const char *m_descr; // tag value
 };
 
+/*  Provides interface for creating item lists and printing them
+ *  Item list is automatically formatted (padded with spaces and tabs) when
+ * is written to logs to look more readable
+ * 	ItemList can be printed like this: m_logs << list;
+ * 	Note. new_entry and end_entry are NOT needed for printing ItemList,
+ * because it creates new entry itself */
 class ItemList {
 public:
 	ItemList(const std::string& list_name) : m_list_name(list_name) {}
