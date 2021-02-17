@@ -25,8 +25,6 @@ inline std::string_view gettimestr_noendl()
 	return res;
 }
 
-} // detail namespace end
-
 /* refers to an existing output stream or creates and manages a new one */
 class OstreamHandler {
 protected:
@@ -55,8 +53,10 @@ private:
 	bool m_allocated;
 };
 
+} // detail namespace end
+
 /* The main class for logging */
-class EnabledLogger final : public OstreamHandler {
+class EnabledLogger final : public detail::OstreamHandler {
 public:
 	EnabledLogger() : EnabledLogger(std::cerr) {}
 	EnabledLogger(std::ostream& stream) : OstreamHandler(stream) {}
