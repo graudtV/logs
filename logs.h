@@ -127,7 +127,7 @@ public:
 	friend EnabledLogger& operator <<(EnabledLogger& logs, const new_entry_tagged& t)
 	{
 		return logs << "#" << logs.entries_counter++ << " : " << detail::gettimestr_noendl()
-			<< "\t [ "<< t.m_descr << " ] " << std::endl << "> ";
+			<< "\t ----------- [ "<< t.m_descr << " ] ----------- " << std::endl << "> ";
 	}
 private:
 	const char *m_descr; // tag value
